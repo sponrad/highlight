@@ -55,7 +55,7 @@ func getConnection[T interface{}](edges []*Edge[T], pagination Pagination) *Conn
 		hasNextPage = true // implicitly true because the passed in cursor should match
 		if len(edges) >= LogsLimit+1 {
 			hasPreviousPage = true
-			edges = edges[1 : len(edges)-1]
+			edges = edges[1:]
 		}
 	} else {
 		if len(edges) >= LogsLimit+1 { // has forward page
